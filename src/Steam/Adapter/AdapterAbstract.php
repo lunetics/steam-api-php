@@ -2,7 +2,7 @@
 
 namespace Steam\Adapter;
 
-use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerInterface;
 use Steam\Configuration;
 
 abstract class AdapterAbstract
@@ -28,7 +28,7 @@ abstract class AdapterAbstract
     protected $_parsedBody = '';
 
     /**
-     * @var Serializer
+     * @var SerializerInterface
      */
     protected $_serializer = null;
 
@@ -60,15 +60,15 @@ abstract class AdapterAbstract
     }
 
     /**
-     * @param Serializer $serializer
+     * @param SerializerInterface $serializer
      */
-    public function setSerializer(Serializer $serializer)
+    public function setSerializer(SerializerInterface $serializer)
     {
         $this->_serializer = $serializer;
     }
 
     /**
-     * @return Serializer
+     * @return SerializerInterface
      */
     public function getSerializer()
     {
