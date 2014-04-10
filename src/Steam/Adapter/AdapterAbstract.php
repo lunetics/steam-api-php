@@ -88,6 +88,6 @@ abstract class AdapterAbstract
      */
     public function getParsedBody()
     {
-        return $this->getSerializer()->deserialize($this->getRawBody(), 'array', 'json');
+        return $this->getSerializer()->deserialize(iconv('UTF-8', 'UTF-8//IGNORE', utf8_encode($this->getRawBody())), 'array', 'json');
     }
 }
